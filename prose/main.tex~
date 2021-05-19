@@ -1,4 +1,4 @@
-\documentclass[12pt,letter]{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 %\usepackage{amsmath}
@@ -89,7 +89,8 @@ The definitions of the four networks are:
     This is $\{u \leftrightarrow v\}$, $\forall u \neq v$.
   \item A circle network in one on which every node has two connections.
     The graph is defined by: $\{1  \leftrightarrow 2, 2 \leftrightarrow 3, 3 \leftrightarrow 4, \dots m \leftrightarrow m+1, \ldots, M-1 \leftrightarrow M, M \leftrightarrow 1\}$.
-  \item A square grid, a network in which every node has four neighbors, except for four nodes (corners) with precisely two neighbors.
+  \item A square grid, a network in which every node has four neighbors, except for four nodes (corners) with precisely two neighbors, and some nodes (the edges) that have three neighbours each; we will only use square grids.
+    This means that $M$ will always be an integer square.
   \item A Barabasi-Albert graph, constructed starting from a circular graph of three nodes, subsequently add a vertex with two edges at each step. The edges are attached to vertices at random, following a distribution proportional to the vertex degree.
 \end{enumerate}
 
@@ -130,6 +131,42 @@ This is also expected given that the degree distribution of such network is diff
 On a scale-free network there are few nodes with lots of neighbours, while most modes have a small degree, the nodes with a high degree fill up with packages and hinder flow.
 Note that this is the case even for high values of $K$
 
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=\textwidth]{plots/ocupationVarianceComplet.pdf}
+  \caption{Ocupation percentage Vs. density $\rho$ for the coplete network for $K=2$ (left), and $k=100$ (right). 
+    The ocupation is shown for three nodes: dmin, dmax and davg (see text for the definitions).}
+  \label{fig:perOcComplete}
+\end{figure}
+
+Figures \ref{fig:perOcComplete} through \ref{fig:perOcScaleFree} show the ocupation percentage Vs. $\rho$ for the different networks and different values of $K$.
+We use one simulation of 300 ticks for 40 different values of $\rho$.
+The ocupation percentage is the mean number of packages at a given node, divided by $K$ (the capacity of the node); we calculate this percentage as the mean of the packages that are on the node on a given simulation, we plot this mean with bars that mark standard deviation normalized to the number of ticks used on the simulation.
+Each plot shows the behavior of a different node picked randomly based on the following definitions: dmin reffers to a node that has the minimum degree in the network, dmax is a node that has the maximum degree of the network and davg is a node, as close as possible, to the floor of the average degree of the network.
+
+Figure \ref{fig:perOcComplete} shows the ocupation percentage for the complete network. 
+Since on this networks all the nodes have the same degree (the number of nodes minus one), we have that dmin, dmax, and davg are any node.
+The subplot on the left was made with maximum ocupation $K=2$, the one on the right with $K=100$.
+As expected, when there are no packagen in the network ($\rho =0$), the occupation is 0, and when the number of packages is $K$ in every node ($\rho=1$) the occupation is 1.
+When the maximum occupation number is small ($K=2$), the occupation correlates linearly with the density of packages, we can say it is uniform through the network; this is expected since there can't be much flow due to the restriction in the number of packages per node.
+When the maximum occupation number is large ($K=100$), the occupation behaves erraticly and all three nodes behave differently; unless $\rho$ is close to 0 or to 1, the occupation on each node is different from the one in another.
+This is due to the fact that all nodes are equal in this particular network.
+
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=\textwidth]{plots/ocupationVarianceCircle.pdf}
+  \caption{Ocupation percentage Vs. density $\rho$ for the circle network for $K=2$ (left), and $k=100$ (right). 
+    The ocupation is shown for three nodes: dmin, dmax and davg (see text for the definitions).}
+  \label{fig:perOcCircle}
+\end{figure}
+
+Figure \ref{fig:perOcCircle} shows the ocupation percentage for the circle network. 
+Since on this networks all the nodes have the same degree (they all have two neighbours), we have that dmin, dmax, and davg are any node.
+The subplot on the left was made with maximum ocupation $K=2$, the one on the right with $K=100$.
+Given that this network is similar to the complete one (all nodes have the same degree), the observed behaviour is very similar. 
+When the maximum occupation number is small ($K=2$), the occupation correlates linearly with the density of packages, we can say it is uniform through the network; this is expected since there can't be much flow due to the restriction in the number of packages per node added to the restriction that there are few nodes that may recieve pakages.
+When the maximum occupation number is large ($K=100$), the occupation behaves erraticly and all three nodes behave differently; unless $\rho$ is close to 0 or to 1, the occupation on each node is different from the one in another.
+As with the complete network, this is due to the fact that all nodes are equal in this particular network.
 
 
 
