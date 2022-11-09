@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 bd193df3563a38b47131732b9a28c7ea0b43f36e Jorge Villalobos <jovillal@cori> 1646515526 -0500	clone: from https://github.com/jovillal/redes
+bd193df3563a38b47131732b9a28c7ea0b43f36e c2bf0a6bdf9511f9d94b301dffc20e6bd04ef64f Jorge Villalobos <jovillal@cori> 1646515776 -0500	commit: not sure whats new...
+c2bf0a6bdf9511f9d94b301dffc20e6bd04ef64f 1615dfc9098d751c46f459a4b08405cb7f035ad4 Jorge Villalobos <jovillal@cori> 1648168694 -0500	commit: Added functions to move packages around. A three part algorithm: remove, add, and update.
+1615dfc9098d751c46f459a4b08405cb7f035ad4 4fc65febd93fcf19ceda61b6f880e1fd53e8ead2 Jorge Villalobos <jovillal@cori> 1648515546 -0500	commit: Did the function that modifies the network's packages. Next step is to build the evolution function.
+4fc65febd93fcf19ceda61b6f880e1fd53e8ead2 f18ce00a6dc09c7c528bf60d4da9a6364384f986 Jorge Villalobos <jovillal@cori> 1649807202 -0500	commit: All occupation plots from the Ernfest paper. Algorithms workinf fine.
